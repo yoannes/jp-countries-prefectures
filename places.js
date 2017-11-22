@@ -1,16 +1,24 @@
-// V1.0
+// V1.1
 
 var places = {
   locale: "ja",
+  setLocale: function (locale) {
+    this.locale = locale;
+
+    // RECREATE <option> OF LISTS
+    places.prefectures.createOptions();
+    places.regions.createOptions();
+    places.countries.createOptions();
+  },
   prefectures: {
     options: null,
     createOptions: function () {
       var options = "";
-      
+
       for (var i=0; i < this.list.length; i++) {
         var v = this.list[i];
         // console.log(v);
-        
+
         var name;
         if (places.locale === "ja") {
           name = v.name + " ("+ v.kana +")";
@@ -19,7 +27,7 @@ var places = {
         }
         options += "<option value='"+ v.id +"'>"+ name +"</option>";
       }
-      
+
       this.options = options;
     },
     list: [
@@ -80,7 +88,7 @@ var places = {
       for (var i=0; i < this.list.length; i++) {
         var v = this.list[i];
         // console.log(v);
-        
+
         var name;
         if (places.locale === "ja") {
           name = v.name + " ("+ v.kana +")";
@@ -118,10 +126,11 @@ var places = {
             name = v.ja;
 
           options += "<option value='"+ k +"'>"+ name +"</option>";
-        }   
+        }
       }
 
       this.options = options;
+      // console.log(options);
     },
     list: {
       "IS": {
@@ -1139,8 +1148,3 @@ var places = {
     }
   }
 };
-
-// CREATE <option> OF LISTS
-places.prefectures.createOptions();
-places.regions.createOptions();
-places.countries.createOptions();

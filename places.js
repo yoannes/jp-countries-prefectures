@@ -1,5 +1,3 @@
-// V1.1
-
 var places = {
   locale: "ja",
   setLocale: function (locale) {

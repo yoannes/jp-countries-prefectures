@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+  <title>Places</title>
+</head>
+<body>
+
+<div class="container-fluid">
+  <h1>Exemples</h1>
+  <br>
+  <div class="row">
+    <div class="col-sm-4">
+      <label for="prefectures">Prefectures</label>
+      <select class="form-control" id="prefectures"></select>
+      <p></p>
+    </div>
+    <div class="col-sm-4">
+      <label for="regions">Regions</label>
+      <select class="form-control" id="regions"></select>
+      <p></p>
+    </div>
+    <div class="col-sm-4">
+      <label for="countries">Countries</label>
+      <select class="form-control" id="countries"></select>
+      <p></p>
+    </div>
+  </div>
+
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary" onclick="places.setLocale('us'); populate()">English</button>
+    <button type="button" class="btn btn-primary" onclick="places.setLocale('ja'); populate()">Japanese</button>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<script src="places.js"></script>
+<script>
+  function populate() {
+    var prefectures = document.querySelector('#prefectures');
+    var regions = document.querySelector('#regions');
+    var countries = document.querySelector('#countries');
+
+    prefectures.innerHTML = places.prefectures.getOptions();
+    regions.innerHTML = places.regions.getOptions();
+    countries.innerHTML = places.country.getOptions();
+  }
+
+  var places = new Places('ja');
+  populate();
+
+</script>
+</body>
+</html>

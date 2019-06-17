@@ -17,6 +17,7 @@ var jpCalendar = {
     }
   },
   list: {
+    2018: { en: "Heisei", ja: "平成", year: 30 },
     2017: { en: "Heisei", ja: "平成", year: 29 },
     2016: { en: "Heisei", ja: "平成", year: 28 },
     2015: { en: "Heisei", ja: "平成", year: 27 },
